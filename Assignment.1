@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+double calculateBill(int units)
+{
+    double bill = 0;
+
+    if (units <= 100)
+    {
+        bill = units * 10;
+    }
+    else if (units <= 200)
+    {
+        bill = (100 * 10) + ((units - 100) * 15);
+    }
+    else
+    {
+        bill = (100 * 10) + (100 * 15) + ((units - 200) * 20);
+    }
+
+    return bill;
+}
+
+int main()
+{
+    int units;
+    double totalBill;
+
+    cout << "Enter the number of units consumed: ";
+    cin >> units;
+
+    if (units < 0)
+    {
+        cout << "Invalid input! Units cannot be negative." << endl;
+        return 1;
+    }
+
+    totalBill = calculateBill(units);
+
+    cout << "\nElectricity Bill Details" << endl;
+    cout << "Units consumed: " << units << endl;
+    cout << "Total electricity bill: KSh " << totalBill << endl;
+
+    return 0;
+}
